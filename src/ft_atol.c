@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kskender <kskender@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/15 14:04:39 by kskender          #+#    #+#             */
-/*   Updated: 2025/03/18 17:45:19 by kskender         ###   ########.fr       */
+/*   Created: 2025/05/16 15:30:48 by kskender          #+#    #+#             */
+/*   Updated: 2025/05/29 16:37:15 by kskender         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/push_swap.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+long	ft_atol(char *str)
 {
-	unsigned char		*tmp_dst;
-	const unsigned char	*tmp_src;
+	long	num;
+	int		sign;
 
-	if (!dest && !src)
-		return (NULL);
-	tmp_dst = (unsigned char *)dest;
-	tmp_src = (const unsigned char *)src;
-	while (n > 0)
+	num = 0;
+	sign = 1;
+	if (*str == '-' || *str == '+')
 	{
-		*tmp_dst = *tmp_src;
-		tmp_dst++;
-		tmp_src++;
-		n--;
+		if (*str == '-')
+			sign = -1;
+		str++;
 	}
-	return (dest);
+	while (*str >= '0' && *str <= '9')
+	{
+		num = num * 10 + (*str - '0');
+		str++;
+	}
+	return (sign * num);
 }

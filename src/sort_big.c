@@ -6,18 +6,18 @@
 /*   By: kskender <kskender@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:34:33 by kskender          #+#    #+#             */
-/*   Updated: 2025/05/23 12:57:16 by kskender         ###   ########.fr       */
+/*   Updated: 2025/06/02 13:56:46 by kskender         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void assign_indexes(t_stack *stack)
+static void	assign_indexes(t_stack *stack)
 {
-	t_stack *ptr;
-	t_stack *current;
-	int value;
-	int count;
+	t_stack	*ptr;
+	t_stack	*current;
+	int		value;
+	int		count;
 
 	ptr = stack;
 	while (ptr)
@@ -36,10 +36,10 @@ static void assign_indexes(t_stack *stack)
 	}
 }
 
-int get_max_bits(t_stack *stack)
+static int	get_max_bits(t_stack *stack)
 {
-	int size;
-	int max_bits;
+	int	size;
+	int	max_bits;
 
 	size = stack_size(stack);
 	max_bits = 0;
@@ -48,12 +48,12 @@ int get_max_bits(t_stack *stack)
 	return (max_bits);
 }
 
-void sort_big(t_stack **a, t_stack **b)
+void	sort_big(t_stack **a, t_stack **b)
 {
-	int max_bits;
-	int size;
-	int i;
-	int j;
+	int	max_bits;
+	int	size;
+	int	i;
+	int	j;
 
 	assign_indexes(*a);
 	max_bits = get_max_bits(*a);

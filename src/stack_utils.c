@@ -6,13 +6,13 @@
 /*   By: kskender <kskender@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 12:35:52 by kskender          #+#    #+#             */
-/*   Updated: 2025/05/22 18:34:35 by kskender         ###   ########.fr       */
+/*   Updated: 2025/05/29 16:37:49 by kskender         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_stack *find_last_node(t_stack *head)
+t_stack	*find_last_node(t_stack *head)
 {
 	if (head == NULL)
 		return (NULL);
@@ -21,7 +21,7 @@ t_stack *find_last_node(t_stack *head)
 	return (head);
 }
 
-int is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
 	while (stack && stack->next)
 	{
@@ -32,9 +32,10 @@ int is_sorted(t_stack *stack)
 	return (1);
 }
 
-int stack_size(t_stack *stack)
+int	stack_size(t_stack *stack)
 {
-	int size;
+	int	size;
+
 	size = 0;
 	while (stack)
 	{
@@ -44,9 +45,12 @@ int stack_size(t_stack *stack)
 	return (size);
 }
 
-void add_to_stack(t_stack **stack, int value)
+void	add_to_stack(t_stack **stack, int value)
 {
-	t_stack *new = malloc(sizeof(t_stack));
+	t_stack	*new;
+	t_stack	*last;
+
+	new = malloc(sizeof(t_stack));
 	if (!new)
 		exit_error(NULL);
 	new->value = value;
@@ -55,9 +59,9 @@ void add_to_stack(t_stack **stack, int value)
 	if (!*stack)
 	{
 		*stack = new;
-		return;
+		return ;
 	}
-	t_stack *last = *stack;
+	last = *stack;
 	while (last->next)
 		last = last->next;
 	last->next = new;

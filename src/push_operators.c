@@ -6,18 +6,18 @@
 /*   By: kskender <kskender@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 10:33:30 by kskender          #+#    #+#             */
-/*   Updated: 2025/05/22 18:31:43 by kskender         ###   ########.fr       */
+/*   Updated: 2025/05/29 16:37:25 by kskender         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void pa(t_stack **a, t_stack **b, int print)
+void	pa(t_stack **a, t_stack **b, int print)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!*b)
-		return;
+		return ;
 	temp = *b;
 	*b = (*b)->next;
 	if (*b)
@@ -31,12 +31,12 @@ void pa(t_stack **a, t_stack **b, int print)
 		write(1, "pa\n", 3);
 }
 
-void pb(t_stack **a, t_stack **b, int print)
+void	pb(t_stack **a, t_stack **b, int print)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!*a)
-		return;
+		return ;
 	temp = *a;
 	*a = (*a)->next;
 	if (*a)

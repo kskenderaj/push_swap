@@ -6,13 +6,13 @@
 #    By: kskender <kskender@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/22 18:29:18 by kskender          #+#    #+#              #
-#    Updated: 2025/05/22 18:30:41 by kskender         ###   ########.fr        #
+#    Updated: 2025/05/29 16:38:08 by kskender         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME := push_swap
-CC := gcc
+CC := cc
 CFLAGS := -Wall -Wextra -Werror -g
 INCD := include
 SRCD := src
@@ -31,13 +31,13 @@ SRCS =  $(SRCD)/error_handling.c \
 		$(SRCD)/rotate_operators.c \
         $(SRCD)/sort_small.c \
 		$(SRCD)/swap_operators.c \
-		$(SRCD)/ft_strtol.c \
+		$(SRCD)/ft_atol.c \
 		$(SRCD)/parsing.c \
         $(SRCD)/reverse_rotate_operators.c \
 		$(SRCD)/sort_big.c \
 		$(SRCD)/stack_utils.c \
-		$(SRCD)/utils_small.c \
 		$(SRCD)/push_operators.c \
+		$(SRCD)/sort_small_utils.c\
 
 OBJS := $(SRCS:$(SRCD)/%.c=$(OBJD)/%.o)
 

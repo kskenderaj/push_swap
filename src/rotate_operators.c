@@ -6,19 +6,19 @@
 /*   By: kskender <kskender@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 12:21:58 by kskender          #+#    #+#             */
-/*   Updated: 2025/05/22 18:31:42 by kskender         ###   ########.fr       */
+/*   Updated: 2025/05/29 16:37:32 by kskender         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void ra(t_stack **a, int print)
+void	ra(t_stack **a, int print)
 {
-	t_stack *first;
-	t_stack *last;
+	t_stack	*first;
+	t_stack	*last;
 
 	if (!*a || !(*a)->next)
-		return;
+		return ;
 	first = *a;
 	last = find_last_node(*a);
 	*a = first->next;
@@ -30,13 +30,13 @@ void ra(t_stack **a, int print)
 		write(1, "ra\n", 3);
 }
 
-void rb(t_stack **b, int print)
+void	rb(t_stack **b, int print)
 {
-	t_stack *first;
-	t_stack *last;
+	t_stack	*first;
+	t_stack	*last;
 
 	if (!*b || !(*b)->next)
-		return;
+		return ;
 	first = *b;
 	last = find_last_node(*b);
 	*b = first->next;
@@ -48,7 +48,7 @@ void rb(t_stack **b, int print)
 		write(1, "rb\n", 3);
 }
 
-void rr(t_stack **a, t_stack **b, int print)
+void	rr(t_stack **a, t_stack **b, int print)
 {
 	ra(a, 0);
 	rb(b, 0);

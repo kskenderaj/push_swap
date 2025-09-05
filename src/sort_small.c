@@ -6,28 +6,27 @@
 /*   By: kskender <kskender@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 14:08:34 by kskender          #+#    #+#             */
-/*   Updated: 2025/05/23 15:20:45 by kskender         ###   ########.fr       */
+/*   Updated: 2025/05/29 16:40:18 by kskender         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void sort_two(t_stack **a)
+void	sort_two(t_stack **a)
 {
 	if ((*a)->value > (*a)->next->value)
 		sa(a, 1);
 }
 
-void sort_three(t_stack **a)
+void	sort_three(t_stack **a)
 {
-	int first;
-	int second;
-	int third;
+	int	first;
+	int	second;
+	int	third;
 
 	first = (*a)->value;
 	second = (*a)->next->value;
 	third = (*a)->next->next->value;
-
 	if (first > second && second < third && first < third)
 		sa(a, 1);
 	else if (first > second && second > third)
@@ -46,45 +45,21 @@ void sort_three(t_stack **a)
 		rra(a, 1);
 }
 
-void push_smallest(t_stack **a, t_stack **b, int count)
+void	sort_four(t_data *data)
 {
-	int min;
-	int pos;
-	t_stack *temp;
-
-	while (count--)
-	{
-		temp = *a;
-		min = temp->value;
-		pos = 0;
-		while (temp)
-		{
-			if (temp->value < min)
-				min = temp->value;
-			temp = temp->next;
-		}
-		temp = *a;
-		while (temp->value != min && ++pos)
-			temp = temp->next;
-		while ((*a)->value != min && pos-- > stack_size(*a) / 2)
-			rra(a, 1);
-		while ((*a)->value != min)
-			ra(a, 1);
-		pb(a, b, 1);
-	}
+	bring_min_to_top(&data->a);
+	pb(&data->a, &data->b, 1);
+	sort_three(&data->a);
+	pa(&data->a, &data->b, 1);
 }
 
-void sort_small(t_stack **a, t_stack **b)
+void	sort_five(t_data *data)
 {
-	int size;
-	size = stack_size(*a);
-
-	if (size == 2)
-		sort_two(a);
-	else if (size == 3)
-		sort_three(a);
-	else
-	{
-		push_smallest(a, b, size);
-	}
+	bring_min_to_top(&data->a);
+	pb(&data->a, &data->b, 1);
+	bring_min_to_top(&data->a);
+	pb(&data->a, &data->b, 1);
+	sort_three(&data->a);
+	pa(&data->a, &data->b, 1);
+	pa(&data->a, &data->b, 1);
 }
